@@ -5,8 +5,6 @@ Everything runs on your own computer with [Gemma](https://ai.google.dev/gemma) t
 
 Built for the DEV [Hacktoberfest Weekend Challenge: Build for a Friend](https://dev.to/devteam/join-the-hacktoberfest-weekend-challenge-build-for-a-friend-2450-in-prizes-across-17-winners-1aj5).
 
-<!-- TODO (Matheus): one or two sentences about who this was built for and why. -->
-
 ## What it does
 
 Bank letters, rental contracts, collection notices and official notifications in Brazil are written in dense legal Portuguese ("juridiquês"). Papel Claro reads the document and answers the questions a person actually has:
