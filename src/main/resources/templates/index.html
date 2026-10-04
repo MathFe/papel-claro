@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Papel Claro</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+	<header>
+		<h1>Papel Claro</h1>
+		<p class="lead">Recebeu um documento difícil de entender? Cole o texto ou tire uma foto. Eu explico em palavras simples.</p>
+		<p class="private">
+			<span aria-hidden="true">&#128274;</span>
+			Tudo acontece neste computador, com o modelo <strong th:text="${modelName}">gemma3:4b</strong>.
+			Nada do seu documento vai para a internet.
+		</p>
+	</header>
+
+	<form id="doc-form" novalidate>
+		<label for="doc-text">Texto do documento</label>
+		<textarea id="doc-text" rows="9" placeholder="Cole aqui o texto do contrato, da carta, do boleto..."></textarea>
+
+		<div class="row">
+			<label class="file-button" for="doc-image">Tirar ou escolher foto</label>
+			<input id="doc-image" type="file" accept="image/jpeg,image/png,image/webp">
+			<button type="button" id="example-button" class="link">Usar um exemplo</button>
+		</div>
+
+		<div id="photo" hidden>
+			<img id="photo-preview" alt="Foto do documento escolhida">
+			<button type="button" id="photo-remove" class="link">Remover foto</button>
+		</div>
+
+		<button type="submit" id="explain-button" class="primary">Explicar</button>
+	</form>
+
+	<p id="status" class="status" role="status" aria-live="polite" hidden></p>
+	<p id="error" class="error" role="alert" hidden></p>
+
+	<section id="result" hidden>
+		<div class="result-top">
+			<p id="doc-type" class="doc-type"></p>
+			<p id="urgency" class="urgency"></p>
+		</div>
+
+		<p id="summary" class="summary"></p>
+		<button type="button" id="listen-button" class="secondary">Ouvir a explicação</button>
+
+		<div id="actions-block" class="block" hidden>
+			<h2>O que você precisa fazer</h2>
+			<ol id="actions"></ol>
+		</div>
+
+		<div id="deadlines-block" class="block" hidden>
+			<h2>Datas importantes</h2>
+			<ul id="deadlines" class="pairs"></ul>
+		</div>
+
+		<div id="amounts-block" class="block" hidden>
+			<h2>Valores</h2>
+			<ul id="amounts" class="pairs"></ul>
+		</div>
+
+		<div id="warnings-block" class="block warn" hidden>
+			<h2>Preste atenção</h2>
+			<ul id="warnings"></ul>
+		</div>
+
+		<div id="glossary-block" class="block" hidden>
+			<h2>Palavras difíceis</h2>
+			<dl id="glossary"></dl>
+		</div>
+
+		<div class="block">
+			<h2>Ficou com dúvida?</h2>
+			<form id="ask-form" novalidate>
+				<label for="question">Pergunte sobre este documento</label>
+				<div class="ask-row">
+					<input id="question" type="text" maxlength="500" placeholder="Exemplo: posso cancelar sem pagar multa?">
+					<button type="submit" id="ask-button" class="primary">Perguntar</button>
+				</div>
+			</form>
+			<div id="answers"></div>
+		</div>
+
+		<p class="disclaimer">
+			Esta explicação ajuda a entender o documento, mas pode conter erros e não substitui um advogado.
+			Antes de assinar ou pagar algo importante, confirme com alguém de confiança.
+		</p>
+	</section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>
